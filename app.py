@@ -35,9 +35,18 @@ def ussd_callback():
     response = "CON What type of goods do you want to deliver?  \n"
     response += "1. Perishable goods  \n"
     response += "2. Bulky goods \n"
+    response += "3. Other \n"
     response += "0. Exit"
-
   elif text == '1*1' or text == '1*2':
+    response = "CON Choose type of vehicle \n"
+    response += "1. Bicycle \n"
+    response += "2. Motorcycle \n"
+    response += "3. tuktuk"
+    response += "4. Car \n"
+    response += "5. Van \n"
+    response += "6. Lorry"
+    response += "0. Exit"
+  elif text == '1*1*1' or text == '1*2*1' :
     response = "CON Choose nearest town  \n"
     response += "1. Nairobi \n"
     response += "2. Mombasa \n"
@@ -54,9 +63,23 @@ def ussd_callback():
 
   elif text == '2':
     response = "CON Choose type of vehicle \n"
-    response += "1. Car \n"
-    response += "2. Van \n"
-    response += "3. Motorcycle \n"
+    response += "1. Bicycle \n"
+    response += "2. Motorcycle \n"
+    response += "3. tuktuk"
+    response += "4. Car \n"
+    response += "5. Van \n"
+    response += "6. Lorry"
+    response += "0. Exit"
+
+
+  elif text == '2*1' or text == '2*2' or text == '2*2' or text == '2*3' or text == '2*4' or text == '2*5' or text == '2*6' and text != '2*0':
+    response = "CON Choose nearest town  \n"
+    response += "1. Nairobi \n"
+    response += "2. Mombasa \n"
+    response += "3. Nakuru \n"
+    response += "4. Kisumu \n"
+    response += "5. Eldoret \n"
+    response += "6. Thika \n"
     response += "0. Exit"
 
   elif text == '2*1' or text == '2*2' or text == '2*3' and text != '2*0':

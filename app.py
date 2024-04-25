@@ -42,7 +42,11 @@ def ussd_callback():
     response = "CON Choose type of vehicle \n"
     response += "1. Bicycle \n"
     response += "2. Motorcycle \n"
+<<<<<<< HEAD
     response += "3. Tuktuk \n"
+=======
+    response += "3. tuktuk \n"
+>>>>>>> e74522fbc6fd82f9e8c44a4e30f74609de11d367
     response += "4. Car \n"
     response += "5. Van \n"
     response += "6. Lorry \n"
@@ -68,7 +72,11 @@ def ussd_callback():
     response = "CON Choose type of vehicle \n"
     response += "1. Bicycle \n"
     response += "2. Motorcycle \n"
+<<<<<<< HEAD
     response += "3. Tuktuk \n"
+=======
+    response += "3. tuktuk \n"
+>>>>>>> e74522fbc6fd82f9e8c44a4e30f74609de11d367
     response += "4. Car \n"
     response += "5. Van \n"
     response += "6. Lorry \n"
@@ -84,8 +92,12 @@ def ussd_callback():
     response += "6. Thika \n"
     response += "0. Exit"
 
+<<<<<<< HEAD
   elif (text.startswith('1*1*1*') or text.startswith('1*2*1*') or text.startswith('1*3*1*')) and len(text) == 7:
       name = fake.first_name()
+=======
+  elif text == '2*1*1'or text == '2*1*2' or text == '2*1*3' or text == '2*1*4' or text == '2*1*5'or text == '2*1*6' or text == '2*2*1' or text == '2*2*2' or text == '2*2*3' or text == '2*2*4' or text == '2*2*5' or text == '2*2*6' or text == '2*3*1' or text == '2*3*2' or text == '2*3*3' or text == '2*3*4' or text == '2*3*5' or text == '2*3*6' or text == '2*4*1' or text == '2*4*2' or text == '2*4*3' or text == '2*4*4' or text == '2*4*5' or text == '2*4*6' or text == '2*5*1' or text == '2*5*2' or text == '2*5*3' or text == '2*5*4' or text == '2*5*5' or text == '2*5*6' or text == '2*6*1' or text == '2*6*2' or text == '2*6*3' or text == '2*6*4' or text == '2*6*5' or text == '2*6*6' and text != '2*0':
+>>>>>>> e74522fbc6fd82f9e8c44a4e30f74609de11d367
       phone_number = "07" + "".join(random.choice("0123456789") for _ in range(8))
       response = f"END Driver {name} will assist you. Call {name} at {phone_number}."
 

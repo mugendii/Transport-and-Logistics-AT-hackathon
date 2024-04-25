@@ -7,8 +7,8 @@ from faker import Faker
 fake = Faker()
 app = Flask(__name__)
 username = "sandbox"
-
 api_key = os.environ.get("SECRET_KEY")  
+
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
 
@@ -37,16 +37,18 @@ def ussd_callback():
     response += "2. Bulky goods \n"
     response += "3. Other \n"
     response += "0. Exit"
-  elif text == '1*1' or text == '1*2':
+
+  elif text == '1*1' or text == '1*2' or text == '1*3':
     response = "CON Choose type of vehicle \n"
     response += "1. Bicycle \n"
     response += "2. Motorcycle \n"
-    response += "3. tuktuk"
+    response += "3. Tuktuk \n"
     response += "4. Car \n"
     response += "5. Van \n"
-    response += "6. Lorry"
+    response += "6. Lorry \n"
     response += "0. Exit"
-  elif text == '1*1*1' or text == '1*1*2' or text == '1*1*3' or text == '1*1*4' or text == '1*1*5' or text == '1*1*6' and text != '1*1*0'or'1*2*1' or text == '1*2*2' or text == '1*2*3' or text == '1*2*4' or text == '1*2*5' or text == '1*2*6' and text != '1*2*0':
+
+  elif (text.startswith('1*1*') or text.startswith('1*2*') or text.startswith('1*3*')) and len(text) == 5:
     response = "CON Choose nearest town  \n"
     response += "1. Nairobi \n"
     response += "2. Mombasa \n"
@@ -56,23 +58,23 @@ def ussd_callback():
     response += "6. Thika \n"
     response += "0. Exit"
 
-  elif text.startswith('1*1*') or text.startswith('1*2*') and text != '1*1*0' and text != '1*2*0':
+  elif (text.startswith('1*1*1*') or text.startswith('1*2*1*') or text.startswith('1*3*1*')) and len(text) == 7:
       name = fake.first_name()
       phone_number = "07" + "".join(random.choice("0123456789") for _ in range(8))
       response = f"END Driver {name} will assist you. Call {name} at {phone_number}."
+
 
   elif text == '2':
     response = "CON Choose type of vehicle \n"
     response += "1. Bicycle \n"
     response += "2. Motorcycle \n"
-    response += "3. tuktuk"
+    response += "3. Tuktuk \n"
     response += "4. Car \n"
     response += "5. Van \n"
-    response += "6. Lorry"
+    response += "6. Lorry \n"
     response += "0. Exit"
 
-
-  elif text == '2*1' or text == '2*2' or text == '2*2' or text == '2*3' or text == '2*4' or text == '2*5' or text == '2*6' and text != '2*0':
+  elif (text.startswith('1*1*') or text.startswith('1*2*') or text.startswith('1*3*')) and len(text) == 5:
     response = "CON Choose nearest town  \n"
     response += "1. Nairobi \n"
     response += "2. Mombasa \n"
@@ -82,15 +84,17 @@ def ussd_callback():
     response += "6. Thika \n"
     response += "0. Exit"
 
-  elif text == '2*1' or text == '2*2' or text == '2*3' and text != '2*0':
+  elif (text.startswith('1*1*1*') or text.startswith('1*2*1*') or text.startswith('1*3*1*')) and len(text) == 7:
+      name = fake.first_name()
       phone_number = "07" + "".join(random.choice("0123456789") for _ in range(8))
-      response = f"END Call our transport service (phone no: {phone_number})"
+      response = f"END Driver {name} will assist you. Call {name} at {phone_number}."
+
 
   elif text == '3':
     response = "END We are checking the status of your request. You'll receive a message soon\n"
     response += "0. Exit"
 
-  elif text == '0' or text == '1*1*0' or text == '1*2*0' or text == '2*0' or text == '3*0' or text == '1*0' or text == '2*1*0' or text == '2*2*0' or text == '2*3*0':
+  elif text == '0' or text.endswith('*0'):
     response = "END Thank you for using our service."
 
   else:

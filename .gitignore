@@ -10,6 +10,7 @@
 # environment file
 *.envy
 .env
+.envcopy
 
 # Pharo Smalltalk Debug log file
 PharoDebug.log

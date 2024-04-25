@@ -46,7 +46,7 @@ def ussd_callback():
     response += "5. Van \n"
     response += "6. Lorry"
     response += "0. Exit"
-  elif text == '1*1*1' or text == '1*2*1' :
+  elif text == '1*1*1' or text == '1*1*2' or text == '1*1*3' or text == '1*1*4' or text == '1*1*5' or text == '1*1*6' and text != '1*1*0'or'1*2*1' or text == '1*2*2' or text == '1*2*3' or text == '1*2*4' or text == '1*2*5' or text == '1*2*6' and text != '1*2*0':
     response = "CON Choose nearest town  \n"
     response += "1. Nairobi \n"
     response += "2. Mombasa \n"

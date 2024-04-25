@@ -58,10 +58,11 @@ def ussd_callback():
     response += "6. Thika \n"
     response += "0. Exit"
 
-  elif (text.startswith('1*1*1*') or text.startswith('1*2*1*') or text.startswith('1*3*1*')) and len(text) == 7:
+  elif (text.startswith('1*1*') or text.startswith('1*2*') or text.startswith('1*3*')) and len(text) == 7:
       name = fake.first_name()
       phone_number = "07" + "".join(random.choice("0123456789") for _ in range(8))
       response = f"END Driver {name} will assist you. Call {name} at {phone_number}."
+
 
 
   elif text == '2':
@@ -74,7 +75,7 @@ def ussd_callback():
     response += "6. Lorry \n"
     response += "0. Exit"
 
-  elif (text.startswith('1*1*') or text.startswith('1*2*') or text.startswith('1*3*')) and len(text) == 5:
+  elif text.startswith('2*') and len(text) == 3:
     response = "CON Choose nearest town  \n"
     response += "1. Nairobi \n"
     response += "2. Mombasa \n"
@@ -84,7 +85,7 @@ def ussd_callback():
     response += "6. Thika \n"
     response += "0. Exit"
 
-  elif (text.startswith('1*1*1*') or text.startswith('1*2*1*') or text.startswith('1*3*1*')) and len(text) == 7:
+  elif text.startswith('2*') and len(text) == 5:
       name = fake.first_name()
       phone_number = "07" + "".join(random.choice("0123456789") for _ in range(8))
       response = f"END Driver {name} will assist you. Call {name} at {phone_number}."
